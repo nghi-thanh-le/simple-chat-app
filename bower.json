@@ -1,0 +1,24 @@
+{
+  "name": "simpe-chat",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Nghi <nghi.lethanh@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-socket-io": "^0.7.0",
+    "bootstrap": "^3.3.7",
+    "angular-toastr": "^2.1.1",
+    "angular-bootstrap": "^2.1.3"
+  }
+}

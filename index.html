@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Chat app</title>
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="angular-toastr/dist/angular-toastr.min.css">
+        <link rel="stylesheet" href="angular-bootstrap/ui-bootstrap-csp.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body ng-controller="MainCtrl">
+        <div class="container bootstrap snippet">
+            <div class="row">
+                <button class="btn btn-primary btn-xl" ng-click="open()">
+                    Change name
+                </button>
+            </div>
+            <br><br>
+
+            <div class="row">
+                <div class="col-md-4 bg-white">
+                    <div class="row border-bottom padding-md" style="height: 40px; margin-left: 5px;">
+                        <h5>Member</h5>
+                    </div>
+
+                    <ul class="friend-list">
+                        <li ng-repeat="user in userArray">
+                            <a href="" class="clearfix">
+                                <img src="https://maxcdn.icons8.com/Color/PNG/48/Users/gender_neutral_user-48.png" alt="" class="img-circle">
+                                <div class="friend-name">
+                                    <strong>{{user}}</strong>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-8 bg-white">
+                    <div class="chat-message">
+                        <ul class="chat">
+                            <li class="left clearfix" ng-repeat="message in messageArray">
+                                <span class="chat-img pull-left">
+                                    <img src="img/placeholder_avatar.jpg" alt="User Avatar">
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">{{message.user}}</strong>
+                                    </div>
+                                    <p>{{message.message}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chat-box bg-white">
+                        <div class="input-group">
+                            <input class="form-control border no-shadow no-rounded" placeholder="Type your message here" ng-model="chatMessage">
+                            <span class="input-group-btn">
+                                <button class="btn btn-success no-rounded" type="button" ng-click="sendMessage()">Send</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/ng-template" id="changeNameContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Change name form</h3>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">New name</label>
+                        <div class="col-md-3">
+                            <input type="text" ng-model="newName" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+        </script>
+
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script type="text/javascript" src="angular/angular.min.js"></script>
+        <script type="text/javascript" src="angular-socket-io/socket.min.js"></script>
+        <script type="text/javascript" src="angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+        <script type="text/javascript" src="angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>
